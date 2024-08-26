@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+
+    <link href="./style.css" rel="stylesheet"> <!-- Link to external CSS file -->
+</head>
+
+<body>
+    <!-- Header -->
+
+    <header>
+        <div class="container-fluid">
+            <div class="row header-row ">
+                <div class="col-md-5 col-sm-12 logo-section  ">
+                    <a class="navbar-brand" href="#">
+                        <img src="./assests/img/blinkit-logo.png" alt="Blinkit">
+                    </a>
+                    <div class="Location-section">
+                        <div class="in-min-text">Delivery in 8 minutes</div>
+                        <div>Sector 9, Gurugram, Haryana 12 <i class="fa-solid fa-caret-down"></i></div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <form class="d-flex search-bar">
+                        <i class="fas fa-search"></i>
+                        <input id="search-input" class="form-control me-2" type="search" placeholder="'Search milk'"
+                            aria-label="Search">
+                    </form>
+                </div>
+                <div class="col-md-3 card-count col-sm-6">
+                    <a class="nav-link login-url" href="#">Login</a>
+                    <a class="nav-link btn btn-success" href="#" id="cart-button"><i
+                            class="fa-solid fa-cart-shopping"></i> <span id="cardItem"></span> My Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fea-navlinks">
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Lightbox Menu -->
+            <div class="navbar-lightbox" id="navbarLightbox">
+                <span class="close-btn" onclick="closeLightbox()">&times;</span>
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Vegetables & Fruits </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dairy & Breakfast</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Munchies</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Cold Drinks & Juices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Instant & Frozen Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tea, Coffee & Health Drinks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bakery & Biscuits</a>
+                    </li>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+
+            <!-- Collapsible Navbar for large screens -->
+            <div class="collapse navbar-collapse" id="navbarNav mobileNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Vegetables & Fruits </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dairy & Breakfast</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Munchies</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Cold Drinks & Juices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Instant & Frozen Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tea, Coffee & Health Drinks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bakery & Biscuits</a>
+                    </li>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                                <li><a class="dropdown-item" href="#">Sweet Tooth</a></li>
+                                <li><a class="dropdown-item" href="#">Atta, Rice & Dal</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul id="category-list">
+            <li><a data-category="vegetables" class="active-slide"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1702463308432-3">
+                    Fresh
+                    Vegetables</a>
+            </li>
+            <li><a data-category="fruits"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1702734004998-8">
+                    Fresh
+                    Fruits</a></li>
+            <li><a data-category="mangoes"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1712577388325-3">
+                    Mangoes
+                    & Melons</a></li>
+            <li><a data-category="seasonal"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1702734004998-3">
+                    Seasonal</a></li>
+            <li><a data-category="exotics"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/icon/278_1678705041060.png">
+                    Exotics</a></li>
+            <li><a data-category="cut"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/icon/395_1668582176947.png">
+                    Freshly
+                    Cut & Sprouts</a></li>
+
+            <li><a data-category="fruits"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1702734004998-8">
+                    Fresh
+                    Fruits</a></li>
+            <li><a data-category="mangoes"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1712577388325-3">
+                    Mangoes
+                    & Melons</a></li>
+            <li><a data-category="seasonal"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/rc-upload-1702734004998-3">
+                    Seasonal</a></li>
+            <li><a data-category="exotics"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/icon/278_1678705041060.png">
+                    Exotics</a></li>
+            <li><a data-category="cut"><img
+                        src="https://cdn.grofers.com/app/images/category/cms_images/icon/395_1668582176947.png">
+                    Freshly
+                    Cut & Sprouts</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center buy-heading">
+            <h1>Buy Fresh Vegetables Online</h1>
+
+            <div class="sortSection">
+                <p> Sort By</p>
+                <select id="sort-options" class="form-select d-inline-block w-auto">
+                    <option value="relevance">Relevance</option>
+                    <option value="price-low-high">Price - Low to High</option>
+                    <option value="price-high-low">Price - High to Low</option>
+                    <option value="discount">Discount</option>
+                </select>
+            </div>
+        </div>
+        <div class="row product-grid " id="product-list">
+            <!-- Products will be dynamically injected here -->
+        </div>
+    </div>
+
+
+
+    <!--static content -->
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="About-vegetables-content">
+
+                    <h2>Fresh Vegetables
+                    </h2>
+                    <p>
+                        Fresh vegetables are an essential part of a healthy diet. Packed with vitamins, minerals,
+                        and
+                        fiber, they
+                        provide numerous health benefits and contribute to overall well-being. In this article, we
+                        will
+                        explore the
+                        world of fresh vegetables, discussing their importance, nutritional value, selection, and
+                        storage.
+
+
+                    </p>
+                    <div class="veg-head"> Importance of Fresh Vegetables:
+                    </div>
+                    <p>
+                        Including fresh vegetables in your diet offers a myriad of advantages for your health:
+                        Nutrient-rich: Fresh vegetables are abundant in essential nutrients, such as vitamins (A, C,
+                        K,
+                        and
+                        B-complex), minerals (iron, potassium, and calcium), and dietary fiber.
+                        Disease prevention: The consumption of fresh vegetables has been linked to a reduced risk of
+                        chronic
+                        diseases, including heart disease, certain types of cancer, and obesity.
+                        Weight management: Vegetables are generally low in calories and high in fiber, making them
+                        ideal
+                        for weight
+                        management and maintaining a healthy body weight.
+                        Digestive health: The fiber content in fresh vegetables promotes healthy digestion, aids in
+                        regular bowel
+                        movements, and contributes to gut health.
+                    </p>
+
+
+                    <div class="veg-head">
+                        Nutritional Value of Fresh Vegetables:
+                    </div>
+                    <p>
+
+                        Different types of fresh vegetables offer varying nutritional profiles. Here are some
+                        examples
+                        of commonly
+                        consumed vegetables and their key nutrients:
+                        Leafy Greens (Spinach, Kale, and Lettuce): Rich in vitamins A, C, K, and folate, as well as
+                        minerals like
+                        iron and calcium.
+                        Cruciferous Vegetables (Broccoli, Cauliflower, and Brussels Sprouts): Packed with vitamin C,
+                        fiber, and
+                        phytochemicals that may have anti-cancer properties.
+                        Root Vegetables (Carrots, Potatoes, and Sweet Potatoes): Excellent sources of vitamin A,
+                        potassium, and
+                        dietary fiber.
+                        Allium Vegetables (Onions, Garlic, and Leeks): Contain sulfur compounds that may offer
+                        immune-boosting and
+                        anti-inflammatory benefits.
+                        Colorful Vegetables (Bell Peppers, Tomatoes, and Eggplants): Vibrant-colored vegetables are
+                        rich
+                        in
+                        vitamins, antioxidants, and phytochemicals that support overall health.
+
+                    </p>
+
+                    <div class="veg-head">Selecting and Storing Fresh Vegetables:</div>
+                    <p>
+                        To make the most of your fresh vegetables, consider the following tips for selection and
+                        storage:
+                        Choose fresh and vibrant vegetables: Look for vegetables with bright colors, firm texture,
+                        and
+                        minimal
+                        blemishes or bruises. This indicates freshness and optimal nutrient content.
+                        Organic and local options: Opt for organic vegetables when possible, as they are grown
+                        without
+                        synthetic
+                        pesticides and fertilizers. Local produce tends to be fresher, as it spends less time in
+                        transit.
+                        Proper storage: Different vegetables have varying storage requirements. Generally, it's
+                        advisable to store
+                        vegetables in the refrigerator's crisper drawer, except for tomatoes, onions, and potatoes,
+                        which are best
+                        stored at room temperature.
+                        Handling with care: Handle vegetables gently to avoid bruising or damage. Rinse them before
+                        consumption, but
+                        avoid washing them before storing, as excess moisture can accelerate spoilage.</p>
+
+
+                    <div class="veg-head"> Conclusion:
+                    </div>
+                    <p>
+
+                        Fresh vegetables are a cornerstone of a healthy diet, providing an array of essential
+                        nutrients
+                        and health
+                        benefits. Including a variety of fresh vegetables in your meals can support overall
+                        well-being,
+                        enhance your
+                        immune system, and reduce the risk of chronic diseases. Remember to select fresh vegetables
+                        carefully, store
+                        them appropriately, and enjoy the vibrant flavors and textures they bring to your plate.
+
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 faq-section">
+
+                    <div class="faq-block">
+                        <div class="faq-qus">
+                            <b>Why are fresh vegetables important for our health? </b>
+
+                        </div>
+                        <p>Fresh vegetables are vital for our health due to their rich nutrient content. They
+                            provide
+                            essential vitamins, minerals, fiber, and antioxidants that support overall well-being,
+                            boost
+                            immunity, and reduce the risk of chronic diseases.
+
+                        </p>
+
+
+                        <div class="faq-qus">
+                            <b>How do fresh vegetables contribute to weight management?
+                            </b>
+
+                        </div>
+                        <p>Fresh vegetables are low in calories and high in fiber, which promotes satiety and helps
+                            control appetite. Including a variety of fresh vegetables in your diet can assist with
+                            weight management by providing nutrient-dense options that are filling and satisfying.
+
+                        </p>
+
+
+                        <div class="faq-qus">
+                            <b>Can fresh vegetables help prevent chronic diseases?
+
+                            </b>
+
+                        </div>
+                        <p>Yes, fresh vegetables are associated with a reduced risk of chronic diseases. Their high
+                            fiber content and antioxidant properties help combat inflammation, oxidative stress, and
+                            cellular damage, which can contribute to the development of conditions like heart
+                            disease,
+                            certain cancers, and diabetes.
+
+
+                        </p>
+
+                        <div class="faq-qus">
+                            <b>Should I choose organic vegetables over conventionally grown ones?
+                            </b>
+
+                        </div>
+                        <p>Opting for organic vegetables is a personal choice. Organic vegetables are grown without
+                            synthetic pesticides and fertilizers, which may be appealing to individuals seeking to
+                            minimize exposure to these substances. However, both organic and conventionally grown
+                            vegetables offer important nutritional benefits.
+
+                        </p>
+
+                        <div class="faq-qus">
+                            <b>How can I select the freshest vegetables?
+                            </b>
+
+                        </div>
+                        <p>When selecting fresh vegetables, look for vibrant colors, firm textures, and minimal
+                            blemishes or bruises. Fresh vegetables should appear crisp and have a pleasant aroma.
+                            It's
+                            also helpful to buy from local farmers' markets or grow your own vegetables for the
+                            freshest
+                            options.
+
+                        </p>
+
+                        <div class="faq-qus">
+                            <b>How should I store fresh vegetables to maintain their freshness?
+                            </b>
+
+                        </div>
+                        <p>Most fresh vegetables are best stored in the refrigerator's crisper drawer, where the
+                            humidity and temperature are optimized for preserving their freshness. However, certain
+                            vegetables like tomatoes, onions, and potatoes should be stored at room temperature to
+                            maintain their flavor and texture.
+
+                        </p>
+
+                        <div class="faq-qus">
+                            <b>Can I freeze fresh vegetables for later use?
+                            </b>
+
+                        </div>
+                        <p>Yes, many fresh vegetables can be successfully frozen for later use. Blanching them
+                            briefly
+                            in boiling water and then placing them in airtight containers or freezer bags helps
+                            retain
+                            their quality. However, note that the texture of some vegetables may change after
+                            freezing,
+                            so they are often better suited for cooked dishes rather than raw consumption.
+
+                        </p>
+
+                        <div class="faq-qus">
+                            <b>How can I incorporate more fresh vegetables into my meals?
+                            </b>
+
+                        </div>
+                        <p>There are numerous ways to incorporate fresh vegetables into your meals. You can add them
+                            to
+                            salads, stir-fries, soups, stews, omelets, and smoothies. Experimenting with different
+                            cooking methods, such as roasting, steaming, or grilling, can also enhance the flavors
+                            and
+                            textures of fresh vegetables.
+
+                        </p>
+
+                        <div class="faq-qus">
+                            <b>Are canned or frozen vegetables as nutritious as fresh vegetables?
+                            </b>
+
+                        </div>
+                        <p>While fresh vegetables are generally preferred, canned or frozen vegetables can still
+                            provide
+                            important nutrients. The canning and freezing processes may cause slight nutrient
+                            losses,
+                            but these vegetables are usually harvested at their peak ripeness and quickly preserved,
+                            retaining much of their nutritional value. When selecting canned vegetables, choose
+                            options
+                            with no added salt or sugars, and with minimal processing.
+
+                        </p>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+
+
+        <div class="container">
+            <div class="row footer-heading-section">
+                <div class="col-md-6">
+
+
+                    <h2>Buy Fresh Vegetables at Online grocery store in india
+                    </h2>
+                    <p>
+                        Are you super fond of online shopping because you hate crowded supermarkets? Now you don't
+                        need
+                        to be worry as Blinkit is delivering Fresh Vegetables at your doorstep superfast with easy
+                        returns for your complete peace of mind.
+                        Get Fresh Vegetables delivered to your home in minutes. you can check Fresh Vegetables price
+                        before buying.
+                        We deliver Fresh Vegetables at HR-NCR, Gurugram (gurgaon), UP-NCR, Noida, Mumbai, Kolkata,
+                        Lucknow, Bengaluru, Ahmedabad, North Delhi, West Delhi, South Delhi, Faridabad, Hyderabad,
+                        Jaipur, Pune, Kanpur, Chennai, Mohali, Panchkula, Zirakpur, Chandigarh, Jalandhar, Ludhiana,
+                        Vadodara, Meerut
+                    </p>
+                </div>
+
+
+                <div class="col-md-6">
+                    <h2>Fresh Vegetables Price List</h2>
+
+
+                    <div class="list-head">
+                        <span class="item">Fresh Vegetables</span>
+                        <span class="price">Price</span>
+
+                    </div>
+
+
+
+                    <ol class="price-list">
+
+                        <li>
+                            <Item>
+
+                                <span class="item">Onion (Pyaz)</span>
+                                <span class="price">Rs.59</span>
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Desi Tomato (Tamatar)</span>
+                                <span class="price">Rs.37</span>
+
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Orange Carrot (Gajar)</span>
+                                <span class="price">Rs.21</span>
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Green Chilli (Hari Mirch)</span>
+                                <span class="price">Rs.15</span>
+
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Lemon</span>
+                                <span class="price">Rs.73</span>
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Green Capsicum (Shimla Mirch)</span>
+                                <span class="price">Rs.38</span>
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Lady Finger</span>
+                                <span class="price">Rs.16</span>
+                            </Item>
+
+                        </li>
+                        <li>
+
+                            <Item>
+
+                                <span class="item">Ginger (Adrak)</span>
+                                <span class="price">Rs.37</span>
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Hybrid Tomato (Tamatar)</span>
+                                <span class="price">Rs.36</span>
+                            </Item>
+
+                        </li>
+                        <li>
+                            <Item>
+
+                                <span class="item">Potato (Aloo)</span>
+                                <span class="price">Rs.48</span>
+                            </Item>
+
+                        </li>
+                    </ol>
+
+
+                    <p class="mt-3"><small>This data was last updated on 8/25/2024</small></p>
+                </div>
+
+            </div>
+        </div>
+        </div>
+
+
+    </section>
+
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 footer-left-section">
+                    <ul>
+                        <li><a href="#about" target="_blank">About</a></li>
+                        <li><a href="#Careers" target="_blank">Careers</a></li>
+                        <li><a href="#Blog" target="_blank">Blog</a></li>
+                        <li><a href="#Press" target="_blank">Press</a></li>
+                        <li><a href="#Lead" target="_blank">Lead</a></li>
+                        <li><a href="#Value" target="_blank">Value</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#Privacy" target="_blank">Privacy</a></li>
+                        <li><a href="#Term" target="_blank">Terms</a></li>
+                        <li><a href="#FAQs" target="_blank">FAQs</a></li>
+                        <li><a href="#Security" target="_blank">Security</a></li>
+                        <li><a href="#Mobile" target="_blank">Mobile</a></li>
+                        <li><a href="#Contact" target="_blank">Contact</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#Partner" target="_blank">Partner</a></li>
+                        <li><a href="#Franchise" target="_blank">Franchise</a></li>
+                        <li><a href="#Seller" target="_blank">Seller</a></li>
+                        <li><a href="#Warehouse" target="_blank">Warehouse</a></li>
+                        <li><a href="#Deliver" target="_blank">Deliver</a></li>
+                        <li><a href="#Resources" target="_blank">Resources</a></li>
+                    </ul>
+                </div>
+
+
+
+                <div class="col-md-8  footer-left-section">
+                    <ul>
+                        <li><a href="#" target="_blank">Vegetables Fruits</a></li>
+                        <li><a href="#" target="_blank">Cold Drinks & Juices
+                            </a></li>
+                        <li><a href="#" target="_blank">Bakery & Biscuits
+                            </a></li>
+                        <li><a href="#" target="_blank">Organic & Premium
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Pharma & Wellness
+                            </a></li>
+                        <li><a href="#" target="_blank">Ice Creams & Frozen Desserts
+                            </a></li>
+                        <li><a href="#" target="_blank">Toys & Games
+                            </a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#" target="_blank">Dairy & Breakfast
+                            </a></li>
+                        <li><a href="#" target="_blank">Instant & Frozen Food
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Sweet Tooth
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Sauces & Spreads
+
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Paan Corner
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Cleaning Essentials
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Personal Care
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Magazines
+
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Print Store
+                            </a></li>
+
+                    </ul>
+
+
+                    <ul>
+                        <li><a href="#" target="_blank">Munchies
+                            </a></li>
+                        <li><a href="#" target="_blank">Tea, Coffee & Health Drinks
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Atta, Rice & Dal
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Baby Care
+
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Home & Office
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Pet Care
+
+                            </a></li>
+                        <li><a href="#" target="_blank">Books
+
+                            </a></li>
+
+                        <li><a href="#" target="_blank">Rakhi Store
+
+
+                            </a></li>
+                    </ul>
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div class="container">
+            <div class="row feature-copywrite">
+
+                <div class="col-md-4 mt-auto mb-auto">
+                    © Blink Commerce Private Limited, 2016-2024
+                </div>
+                <div class="col-md-8  footer-social-media">
+
+
+                    <div class="download-app-sec">
+                        <b style="text-wrap: nowrap;"> Download App</b>
+
+                        <div class="apple-png">
+                            <img src="./assests/img/apple-playstore.png" />
+                        </div>
+                        <div class="google-png">
+                            <img src="./assests/img/google-playstore.png" />
+
+                        </div>
+                    </div>
+                    <div class="socail-repeater">
+                        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>“Blinkit” is owned & managed by "Blink Commerce Private Limited" and is not related, linked or
+                interconnected in whatsoever manner or nature, to “GROFFR.COM” which is a real estate services business
+                operated by “Redstone Consultancy Services Private Limited”.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script> <!-- Link to external JS file -->
+</body>
+
+</html>
